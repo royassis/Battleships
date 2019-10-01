@@ -143,10 +143,11 @@ def init_game(size_of_board, number_of_ships, player_dict):
     # decription
 
     game =  Game()
+    size_of_board, number_of_ships, player_dict = get_params_from_user()
+
     game.init_board(size_of_board, number_of_ships)
 
-    for name, kind in player_dict.keys:
-        game.make_player(name, kind)
+    game.init_players(player_dict)
 
     return game
 
@@ -218,6 +219,10 @@ class Game(object):
         p = self.make_player(name,kind)
         self.player_dict[name] = p
 
+    def init_players(self, dict):
+        # decription
+
+        ...
 
     def init_board(self, board_length, number_of_ships):
         # decription
