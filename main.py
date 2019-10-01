@@ -19,7 +19,7 @@ while(True):
     turn_of_one_player()
 
 
-
+#some txt in order to commit
 
 
 
