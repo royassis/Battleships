@@ -94,6 +94,15 @@ def init_board(board_size, number_of_ships):
                                   ### Construct game ###
 
 
+def prompt_to_end_loop():
+    # decription
+    end = 0
+    while (end == 0):
+        end = input("End input generation ? Y/N")
+
+    return (1 if end == "N " else 0)
+
+
 def is_number(s):
     # decription
 
@@ -103,6 +112,21 @@ def is_number(s):
     except ValueError:
         return False
 
+def player_dict_from_user():
+    # decription
+
+    player_dict={}
+
+    while(True):
+
+        p_name = input("player name")
+        p_type = input("player type")
+
+        player_dict[p_name]=p_type
+
+        if (prompt_to_end_loop()==1): break
+
+    return player_dict
 
 
 def get_params_from_user():
@@ -110,9 +134,9 @@ def get_params_from_user():
 
     size_of_board = int(input("Input board_length"))
     number_of_ships = int(input("Input number_of_ships"))
+    player_dict = player_dict_from_user()
 
-
-    return size_of_board,number_of_ships
+    return player_dict,size_of_board,number_of_ships
 
 
 def init_game(size_of_board, number_of_ships, player_dict):
