@@ -104,34 +104,12 @@ def is_number(s):
         return False
 
 
+
 def get_params_from_user():
     # decription
 
-    input_ok=0
-    while (input_ok == 0 ):
-
-        size_of_board = input("Input board_length")
-        number_of_ships = input("Input number_of_ships")
-
-        if  is_number(size_of_board) == False or \
-            is_number(number_of_ships) == False:
-            print("wrong input")
-
-            continue
-
-        else:
-            size_of_board = int(size_of_board)
-            number_of_ships = int(number_of_ships)
-
-        if (size_of_board == 0 or number_of_ships == 0):
-            print("Please pick a resonable size")
-            continue
-
-        if (size_of_board < number_of_ships ):
-            print("board too small")
-            continue
-
-        input_ok = 1
+    size_of_board = int(input("Input board_length"))
+    number_of_ships = int(input("Input number_of_ships"))
 
 
     return size_of_board,number_of_ships
