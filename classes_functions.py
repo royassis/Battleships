@@ -103,14 +103,6 @@ def is_number(s):
     except ValueError:
         return False
 
-def prompt_to_quit():
-    # decription
-
-    end = 0
-    while end not in ("N","Y") :
-        end = input("quit? N/Y")
-    return end
-
 
 def get_params_from_user():
     # decription
