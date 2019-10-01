@@ -221,7 +221,7 @@ class Game(object):
 
     def init_players(self, dict):
         # decription
-        #TODO build this
+        #TODO build this 1
         ...
 
     def init_board(self, board_length, number_of_ships):
