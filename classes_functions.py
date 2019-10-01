@@ -103,6 +103,34 @@ def is_number(s):
     except ValueError:
         return False
 
+def prompt_to_quit():
+    # decription
+
+    end = 0
+    while end not in ("N","Y") :
+        end = input("quit? N/Y")
+    return end
+
+
+def size_of_board_check(size_of_board):
+    # decription
+
+    if size_of_board > 3:
+        return 0
+    else:
+        return 1
+
+
+def validate_single_param(param, restriction_function, prompt_string, error_string):
+    # decription
+
+    param = input(prompt_string)
+    while (True):
+        if (restriction_function()==0):
+            return param
+        else:
+            print(error_string)
+
 
 def get_params_from_user():
     # decription
