@@ -170,8 +170,16 @@ class ship(object):
         self.id = id
         self.length
         self.direction
-        self.location
+        self.location =[]
 
+    def set_location(self, location_arr):
+        self.location= location_arr
+
+    def set_direction(self, direction):
+        self.direction= direction
+
+    def set_length(self, length):
+        self.length= length
 
 class Player(object):
 
