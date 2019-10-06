@@ -29,12 +29,23 @@ def generate_ship_attributes(board_length, n_ships):
 #-------------------------------------------------#
 
 
-def init_ships_for_player(board_length, number_of_ships):
-    #init a board for a given player
 
-    ship_dict={}
+
+#-------------------------------------------------#
+def possible_cords():
+    ...
+    return # a slice of array ?
+
+def check_if_placing_possible():
+    return #yes no
+
+def cords_for_placing():
+    return #cords
+
+def init_ships_for_player(board_length, number_of_ships):
 
     board = np.zeros([board_length, board_length], dtype=int)
+    ship_container ={}
 
     #For all ships, iterate ship by ship
     for i in range(len(number_of_ships)):
@@ -45,8 +56,9 @@ def init_ships_for_player(board_length, number_of_ships):
         #Place ship randomly on board
 
             #Check for relevent cordinates to place
-            cords_to_place_ship = "slice of array"
+            possible_cords = possible_cords(ship_size,ship_direction,ship_container)
 
+            answer = check_if_placing_possible()
             #Try to find a sutible ship.location randomly on -possible cordinates-
                 #If succesfull place
                 #if not change direction
@@ -57,7 +69,7 @@ def init_ships_for_player(board_length, number_of_ships):
 
 
     return #A ship object
-
+# -------------------------------------------------#
 
 
                                   ### Construct game ###
