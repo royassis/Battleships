@@ -70,6 +70,9 @@ def init_ships_for_player(board_length, number_of_ships):
 # -------------------------------------------------#
 
 
+
+
+
                                   ### Construct game ###
 
 
