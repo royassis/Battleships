@@ -15,6 +15,17 @@ def generate_ship_size(board_length, n_ships):
 
     return ship_size
 
+def generate_ship_direction():
+    return np.random.randint(0,1)
+
+
+def generate_ship_attributes(board_length, n_ships):
+
+    ship_size=generate_ship_size(board_length, n_ships)
+    ship_direction = generate_ship_direction()
+
+    return ship_size, ship_direction
+
 
 def relevent_cords(board_length, ship_size, board_to_check, upper_xy):
     # Returns a dictionary with the keys as suitable row numbers and values as suitable elemnts in each row
