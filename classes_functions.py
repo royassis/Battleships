@@ -5,7 +5,8 @@ from collections import defaultdict
 
                                 ### Construct board ###
 
-
+### Generate a ship attributes ###
+#-------------------------------------------------#
 def generate_ship_size(board_length, n_ships):
     # Returns ship size when constructing board
 
@@ -25,44 +26,9 @@ def generate_ship_attributes(board_length, n_ships):
     ship_direction = generate_ship_direction()
 
     return ship_size, ship_direction
+#-------------------------------------------------#
 
 
-def relevent_cords(board_length, ship_size, board_to_check, upper_xy):
-    # Returns a dictionary with the keys as suitable row numbers and values as suitable elemnts in each row
-
-    d = defaultdict(list)
-    for i in range(board_length):
-
-        for j in range(upper_xy + 1):
-
-            counter = 0
-            for k in range(ship_size):
-
-                if board_to_check[i, j + k] == 0:
-                    counter = 1 + counter
-                else:
-                    counter = 0
-            if counter >= ship_size:
-                d[i].append(j)
-    return d
-
-
-def set_ship(dict, board_to_check, ship_size, ship_counter):
-    # Returnes a board with the ship numbers
-
-    random_i = np.random.choice(list(dict.keys()))
-    random_j = np.random.choice(dict[random_i])
-
-    for k in range(ship_size):
-        board_to_check[random_i, random_j + k] = ship_counter
-
-
-def check__if_full(board):
-
-    length = len(board[0].ravel())
-    if np.count_nonzero(board[0]) == length:
-        return 1
-    return 0
 
 
 def init_ships_for_player(board_length, number_of_ships):
