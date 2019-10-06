@@ -69,34 +69,16 @@ def init_board(board_length, number_of_ships):
     # Joins all the above functions in order to place a new ship.returns the new board with the places ship and a list of ships as a dict
     ship_dict={}
 
-    board = np.zeros([2, board_length, board_length], dtype=int)
-    ship_counter = 0
+    board = np.zeros([board_length, board_length], dtype=int)
 
     #For all ships, iterate ship by ship
-    while ship_counter<number_of_ships:
+    for i in range(len(number_of_ships)):
 
         #Get ship size and direction
-        ship_size = generate_ship_size(board_length, number_of_ships)
+        ship_size,ship_direction = generate_ship_size(board_length, number_of_ships)
 
-        upper_xy = board_length - ship_size
+        cords_to_place_ship = "slice of array"
 
-        #check if ship placment on board is ok
-        board_to_check = board[0] if direction == 0 else board[0].T
-
-        #get cords to place ship
-        dict = relevent_cords(board_length, ship_size, board_to_check, upper_xy)
-
-        #if cords are not good try again with same ship
-        if not(dict):
-            continue
-
-        #if cords are good place ship
-        set_ship(dict, board_to_check, ship_size, ship_counter + 1)
-
-        # Input ship and ship size into ship dictionary
-        ship_dict[ship_counter + 1] = ship_size
-
-        ship_counter = ship_counter + 1
 
     return ship_dict
 
