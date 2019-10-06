@@ -39,9 +39,6 @@ def possible_cords():
 def check_if_placing_possible():
     return #yes no
 
-def cords_for_placing():
-    return #cords
-
 def init_ships_for_player(board_length, number_of_ships):
 
     board = np.zeros([board_length, board_length], dtype=int)
@@ -59,6 +56,7 @@ def init_ships_for_player(board_length, number_of_ships):
             possible_cords = possible_cords(ship_size,ship_direction,ship_container)
 
             answer = check_if_placing_possible()
+
             #Try to find a sutible ship.location randomly on -possible cordinates-
                 #If succesfull place
                 #if not change direction
