@@ -29,8 +29,6 @@ def generate_ship_attributes(board_length, n_ships):
 #-------------------------------------------------#
 
 
-
-
 def init_ships_for_player(board_length, number_of_ships):
     #init a board for a given player
 
@@ -58,8 +56,7 @@ def init_ships_for_player(board_length, number_of_ships):
         #return an object containing all *ships* to player
 
 
-
-    return ship_object
+    return #A ship object
 
 
 
