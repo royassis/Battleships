@@ -65,8 +65,9 @@ def check__if_full(board):
     return 0
 
 
-def init_board(board_length, number_of_ships):
-    # Joins all the above functions in order to place a new ship.returns the new board with the places ship and a list of ships as a dict
+def init_ships_for_player(board_length, number_of_ships):
+    #init a board for a given player
+
     ship_dict={}
 
     board = np.zeros([board_length, board_length], dtype=int)
@@ -74,13 +75,25 @@ def init_board(board_length, number_of_ships):
     #For all ships, iterate ship by ship
     for i in range(len(number_of_ships)):
 
-        #Get ship size and direction
-        ship_size,ship_direction = generate_ship_size(board_length, number_of_ships)
+        #Get a random ship direction and length
+            ship_size,ship_direction = generate_ship_size(board_length, number_of_ships)
 
-        cords_to_place_ship = "slice of array"
+        #Place ship randomly on board
+
+            #Check for relevent cordinates to place
+            cords_to_place_ship = "slice of array"
+
+            #Try to find a sutible ship.location randomly on -possible cordinates-
+                #If succesfull place
+                #if not change direction
+
+            #do this recursivly until all ships are places
+
+        #return an object containing all *ships* to player
 
 
-    return ship_dict
+
+    return ship_object
 
 
 
@@ -235,7 +248,7 @@ class Game(object):
     def init_board(self, board_length, number_of_ships):
         # decription
 
-        self.board = init_board(board_length, number_of_ships)
+        self.board = init_ships_for_player(board_length, number_of_ships)
 
 
     def kill_player(self):
