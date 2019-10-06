@@ -54,26 +54,26 @@ def check__if_full(board):
     return 0
 
 
-def init_board(board_size, number_of_ships):
+def init_board(board_length, number_of_ships):
     # Joins all the above functions in order to place a new ship.returns the new board with the places ship and a list of ships as a dict
     ship_dict={}
 
-    board = np.zeros([2, board_size, board_size], dtype=int)
+    board = np.zeros([2, board_length, board_length], dtype=int)
     ship_counter = 0
 
     #For all ships, iterate ship by ship
     while ship_counter<number_of_ships:
 
         #Get ship size and direction
-        ship_size, direction = generate_ship_size(board_size)
+        ship_size = generate_ship_size(board_length, number_of_ships)
 
-        upper_xy = board_size - ship_size
+        upper_xy = board_length - ship_size
 
         #check if ship placment on board is ok
         board_to_check = board[0] if direction == 0 else board[0].T
 
         #get cords to place ship
-        dict = relevent_cords(board_size, ship_size, board_to_check, upper_xy)
+        dict = relevent_cords(board_length, ship_size, board_to_check, upper_xy)
 
         #if cords are not good try again with same ship
         if not(dict):
@@ -164,6 +164,13 @@ def turn_of_one_player(self):
 
 
                                 ### Classes ###
+class ship(object):
+
+    def __init__(self, id):
+        self.id = id
+        self.length
+        self.direction
+        self.location
 
 
 class Player(object):
