@@ -181,7 +181,7 @@ class Human(Player):
     def __init__(self, name):
 
         self.name = name
-        super().__init__(self, name)
+        super().__init__(self)
 
 
 class AI(Player):
@@ -189,7 +189,7 @@ class AI(Player):
     def __init__(self, name):
 
         self.name = name
-        super().__init__(self, name)
+        super().__init__(self)
 
 
 class Game(object):
@@ -207,22 +207,22 @@ class Game(object):
     def make_player(self, name, kind):
         # decription
 
-        if kind == 1:
+        if kind == "human":
             return Human(name)
         else:
-            return AI
+            return AI(name)
 
 
     def add_player(self,name,kind):
         # decription
-
         p = self.make_player(name,kind)
         self.player_dict[name] = p
 
-    def init_players(self, dict):
+    def init_players(self, player_dict):
         # decription
-        #TODO build this 1
-        ...
+        for player_name in player_dict:
+            player_kind = player_dict[player_name]
+            self.add_player(player_name,player_kind)
 
     def init_board(self, board_length, number_of_ships):
         # decription
@@ -234,7 +234,5 @@ class Game(object):
 
         # If player have no more ships get player out of player loop
         ...
-
-
 
 
